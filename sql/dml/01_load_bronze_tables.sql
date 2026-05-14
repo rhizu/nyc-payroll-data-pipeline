@@ -1,0 +1,1 @@
+INSERT INTO bronze.nyc_payroll (fiscal_year, agency_name, last_name, first_name, mid_init, agency_start_date, work_location_borough, title_description, leave_status_as_of_june_30, base_salary, pay_basis, regular_hours, regular_gross_paid, ot_hours, total_ot_paid, total_other_pay, batch_number) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
