@@ -24,89 +24,131 @@ Enables analytical insights into workforce trends, salaries, and overtime patter
 - Docker
 - Data Modeling (Star Schema)
 
-## Steps to R
-Step 1 — Clone Repository
+---
+
+
+# 🚀 How to Run the Project
+
+## 1️⃣ Clone Repository
+
+```bash
 git clone https://github.com/rhizu/nyc-payroll-data-pipeline.git
+```
 
-Move into the project folder:
+Move into project directory:
 
+```bash
 cd nyc-payroll-data-pipeline
-Step 2 — Add Dataset
+```
 
-Download the NYC Payroll dataset and place it inside:
+---
 
+## 2️⃣ Add Dataset
+
+Download the NYC Payroll CSV dataset and place it inside:
+
+```text
 data/
+```
 
 Example:
 
+```text
 data/nyc_payroll_data.csv
-Step 3 — Start Docker Containers
+```
+
+---
+
+## 3️⃣ Start Docker Containers
 
 Run:
 
+```bash
 docker-compose up -d
+```
 
-This starts:
+Verify containers:
 
-PostgreSQL container
-Airflow container(s)
-
-Verify running containers:
-
+```bash
 docker ps
-Step 4 — Access Airflow
+```
+
+---
+
+## 4️⃣ Open Airflow
 
 Open browser:
 
+```text
 http://localhost:8080
+```
 
-Default credentials:
+Default Login:
 
+```text
 Username: airflow
 Password: airflow
-Step 5 — Trigger the DAG
+```
+
+---
+
+## 5️⃣ Execute Pipeline
 
 Inside Airflow:
 
-Locate the DAG
-Enable the DAG toggle
-Click Trigger DAG
+1. Enable the DAG
+2. Trigger the DAG
 
-The pipeline executes in this order:
+Execution Flow:
 
+```text
 Bronze Layer
     ↓
 Silver Layer
     ↓
 Gold Layer
-Step 6 — Verify PostgreSQL Tables
+```
+
+---
+
+## 6️⃣ Verify PostgreSQL Tables
 
 Connect to PostgreSQL container:
 
+```bash
 docker exec -it <postgres_container_name> psql -U postgres -d nyc_payroll_db
+```
 
-List schemas:
+View Gold tables:
 
-\dn
-
-List tables:
-
+```sql
 \dt gold.*
+```
 
-Example query:
+Run sample query:
 
+```sql
 SELECT * FROM gold.fact_payroll LIMIT 10;
-Step 7 — Connect Power BI
+```
 
-In Microsoft Power BI:
+---
 
-Get Data → PostgreSQL
-Connect to:
+## 7️⃣ Connect Power BI
+
+In Power BI:
+
+1. Get Data → PostgreSQL
+2. Connect using:
+
+```text
 Server: localhost
 Port: 5432
 Database: nyc_payroll_db
+```
 
 Load Gold layer tables for visualization.
+
+---
 
 ## 📊 Key Insights Explored
 - Overtime trends across agencies
@@ -119,4 +161,4 @@ Load Gold layer tables for visualization.
 
 ## 📁 Dataset
 
-Based on publicly available payroll data from the New York City government.
+https://www.kaggle.com/datasets/new-york-city/nyc-citywide-payroll-data
