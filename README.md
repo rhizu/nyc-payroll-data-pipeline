@@ -156,9 +156,6 @@ Load Gold layer tables for visualization.
 - Workforce distribution by borough
 - Employee retention using fiscal year cutoff logic
 
-## 🎯 How to Rub?
-
-
 ## 📁 Dataset
 
 https://www.kaggle.com/datasets/new-york-city/nyc-citywide-payroll-data
